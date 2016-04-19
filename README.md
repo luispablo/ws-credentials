@@ -19,3 +19,15 @@ credentials.authenticate("username", "password").then(res => {
 });
 
 ```
+
+You also have a mock for when you're developing:
+
+```
+const users = {
+	"username1": "pass1",
+	"username2": "pass2"
+};
+const mock = credentials.Mock(users);
+```
+
+and then use it as usual.
