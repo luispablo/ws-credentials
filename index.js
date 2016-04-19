@@ -13,7 +13,7 @@ module.exports = function (baseURL) {
 						} else if (result.AuthenticateResponse.AuthenticateResult == "true") {
 							resolve(result);
 						} else {
-							reject({message: "Wrong username or password"});
+							reject({code: 401, message: "Wrong username or password"});
 						}
 					});
 				}).catch(error => reject(error));
