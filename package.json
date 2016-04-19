@@ -4,7 +4,8 @@
   "description": "Inner WS credentials service consumer",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/tape/bin/tape test/*.js"
+    "test": "./node_modules/tape/bin/tape test/*.js",
+    "lint": "eslint *.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/luispablo/ws-credentials/issues"
   },
-  "homepage": "https://github.com/luispablo/ws-credentials#readme"
+  "homepage": "https://github.com/luispablo/ws-credentials#readme",
+  "devDependencies": {
+    "isomorphic-fetch": "^2.2.1",
+    "koa": "^1.2.0",
+    "tape": "^4.5.1"
+  },
+  "dependencies": {
+    "xml2js": "^0.4.16"
+  }
 }
