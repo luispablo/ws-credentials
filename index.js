@@ -1,9 +1,11 @@
 "use strict";
 
 const parseString = require("xml2js").parseString;
+const Mock = require("./lib/Mock");
 
 module.exports = function (baseURL) {
 	return {
+		Mock: Mock,
 		authenticate: function (username, password) {
 			return new Promise(function (resolve, reject) {
 				fetch(`${baseURL}/xml/${username}/${password}`).then(res => {

@@ -26,6 +26,11 @@ test("[BEFORE] Start Koa server", assert => {
 	assert.end();
 });
 
+test("index - Has a mock for devs", assert => {
+	assert.ok(typeof(credentials.Mock) === "function", "Has a function to build a mock");
+	assert.end();
+});
+
 test("index - Credentials OK", assert => {
 	assert.plan(1);
 	mockResponse.body = buildResponse(true);
