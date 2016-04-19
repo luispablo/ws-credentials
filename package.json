@@ -1,0 +1,19 @@
+{
+  "name": "ws-credentials",
+  "version": "1.0.0",
+  "description": "Inner WS credentials service consumer",
+  "main": "index.js",
+  "scripts": {
+    "test": "./node_modules/tape/bin/tape test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luispablo/ws-credentials.git"
+  },
+  "author": "@luispablo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luispablo/ws-credentials/issues"
+  },
+  "homepage": "https://github.com/luispablo/ws-credentials#readme"
+}
