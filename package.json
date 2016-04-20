@@ -1,6 +1,6 @@
 {
   "name": "ws-credentials",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Inner WS credentials service consumer",
   "main": "index.js",
   "scripts": {
@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/luispablo/ws-credentials#readme",
   "devDependencies": {
-    "isomorphic-fetch": "^2.2.1",
     "koa": "^1.2.0",
     "tape": "^4.5.1"
   },
   "dependencies": {
+    "isomorphic-fetch": "^2.2.1",
     "xml2js": "^0.4.16"
   }
 }

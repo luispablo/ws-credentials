@@ -2,6 +2,7 @@
 
 const parseString = require("xml2js").parseString;
 const Mock = require("./lib/Mock");
+const fetch = require("isomorphic-fetch");
 
 module.exports = function (baseURL) {
 	return {
