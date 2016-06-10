@@ -1,11 +1,11 @@
 {
   "name": "ws-credentials",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "description": "Inner WS credentials service consumer",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/tape/bin/tape test/*.js",
-    "lint": "eslint *.js"
+    "test": "tape test/*.js | faucet",
+    "lint": "eslint *.js lib/*.js"
   },
   "repository": {
     "type": "git",
