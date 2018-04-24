@@ -79,6 +79,16 @@ test("WSCredentials - authenticate wrong password", assert => {
   });
 });
 
+test("WSCredentials - don't log passwords", function (assert) {
+  assert.plan(1);
+  var wrongPassword = "wrong-password-leaked";  
+  credentials.authenticate(USERNAME, wrongPassword).then(function (res) {
+    assert.fail("Shouldn't authenticate with this password");
+  }).catch(function (err) {
+    assert.ok(err.message.indexOf(wrongPassword) < 0, "Shouldn't show password");
+  });
+});
+
 test("WSCredentials - groups", function (assert) {
   assert.plan(1);
     credentials.groups(USERNAME).then(function (groups) {
