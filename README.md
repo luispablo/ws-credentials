@@ -104,4 +104,37 @@ var user1 = {
 var mock = credentials.Mock([user1, user2, ...]);
 ```
 
+# HTTPS
+
+When working over SSL, you'll have to pass the URL with the protocol in it, and another parameter with the path of the certificate. If the path with the certificate is not given, it will trust implicitly on the other end.
+
+```javascript
+var credentials = require("ws-credentials")("https://yourserver.com/auth", "/user/home/certificates/SECURE_CERTIFICATE.pem");
+
+credentials.details("tsmith").then(function (userDetails) {
+	// userDetails is an object, as such:
+	// {
+	// 	CN: "Tom Smith",
+	// 	Description: null,
+	// 	DisplayName: "Tom Wilson Smith",
+	// 	GivenName: "Tom",
+	// 	GroupType: null,
+	// 	HomeDirectory: "\\SVRSOME\HOME\tsmith",
+	// 	Mail: "tsmith@svrhome.com",
+	// 	MailNickname: "tsmith",
+	// 	MemberOf: ["PaperCut", "OtherGroup"],
+	// 	Name: "Tom Wilson Smith",
+	// 	SAMAccountName: "tsmith",
+	// 	Surname: "Smith",
+	// 	WhenChanged: "6/5/2016 12:00:26 PM",
+	// 	WhenCreated: "8/31/2010 5:54:10 PM"
+	// }
+}).catch(function (err) {
+	console.log("Error getting groups", err);
+});
+```
+
+(same case for groups and authentication)
+
+
 This function expects an array of users. Each user has the fields **username** and **password** to emulate the authentication; **groups** to use in the groups function, and **details** to mock the details function result.
