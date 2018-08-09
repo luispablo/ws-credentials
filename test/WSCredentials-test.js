@@ -53,7 +53,19 @@ test("WSCredentials - details", function (assert) {
 test("WSCredentials - authenticate OK", function (assert) {
   assert.plan(1);
   credentials.authenticate(USERNAME, PASSWORD).then(function (userDetails) {
-    assert.deepEqual(userDetails, mockDetails, "The expected user details");
+    const expectedDetails = JSON.parse(JSON.stringify(mockDetails));
+    expectedDetails.groups = JSON.parse(JSON.stringify(mockDetails.MemberOf));
+    assert.deepEqual(userDetails, expectedDetails, "The expected user details");
+  }).catch(function (err) {
+    assert.fail(JSON.stringify(err));
+  });
+});
+
+test("WSCredentials - authenticate, giving groups array", function (assert) {
+  assert.plan(2);
+  credentials.authenticate(USERNAME, PASSWORD).then(function (userDetails) {
+    assert.deepEqual(userDetails.MemberOf, mockDetails.MemberOf, "MemberOf property OK");
+    assert.deepEqual(userDetails.groups, userDetails.MemberOf, "groups property identical to MemberOf");
   }).catch(function (err) {
     assert.fail(JSON.stringify(err));
   });

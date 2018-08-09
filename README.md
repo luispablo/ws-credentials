@@ -65,8 +65,12 @@ credentials.authenticate("tsmith", "password").then(function (userDetails) {
 	// 	SAMAccountName: "tsmith",
 	// 	Surname: "Smith",
 	// 	WhenChanged: "6/5/2016 12:00:26 PM",
-	// 	WhenCreated: "8/31/2010 5:54:10 PM"
+	// 	WhenCreated: "8/31/2010 5:54:10 PM",
+	//  groups: ["PaperCut", "OtherGroup"]
 	// }
+
+	// IMPORTANT NOTE: The "groups" property is an
+	// exact copy of "MemberOf".
 }).catch(function (err) {
 	// If you're here something went wrong, see what:
 	console.log(err.message);
