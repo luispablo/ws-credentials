@@ -108,6 +108,8 @@ var user1 = {
 var mock = credentials.Mock([user1, user2, ...]);
 ```
 
+This function expects an array of users. Each user has the fields **username** and **password** to emulate the authentication; **groups** to use in the groups function, and **details** to mock the details function result.
+
 # HTTPS
 
 When working over SSL, you'll have to pass the URL with the protocol in it, and another parameter with the path of the certificate. If the path with the certificate is not given, it will trust implicitly on the other end.
@@ -139,6 +141,3 @@ credentials.details("tsmith").then(function (userDetails) {
 ```
 
 (same case for groups and authentication)
-
-
-This function expects an array of users. Each user has the fields **username** and **password** to emulate the authentication; **groups** to use in the groups function, and **details** to mock the details function result.

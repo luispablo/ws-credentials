@@ -1,6 +1,6 @@
 {
   "name": "ws-credentials",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Inner WS credentials service consumer",
   "main": "index.js",
   "scripts": {

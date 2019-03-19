@@ -53,7 +53,8 @@ test("SSLWSCredentials - [BEFORE] Start Koa server", assert => {
 test("SSLWSCredentials - authenticate OK with certificate", function (assert) {
   assert.plan(1);
   credentials.authenticate(USERNAME, PASSWORD).then(function (userDetails) {
-    assert.deepEqual(userDetails, mockDetails, "The expected user details");
+    const expected = Object.assign({}, mockDetails, { groups: mockDetails.MemberOf });
+    assert.deepEqual(userDetails, expected, "The expected user details");
   }).catch(function (err) {
     assert.fail(JSON.stringify(err));
   });
@@ -62,7 +63,8 @@ test("SSLWSCredentials - authenticate OK with certificate", function (assert) {
 test("SSLWSCredentials - authenticate OK without certificate", function (assert) {
   assert.plan(1);
   credentialsNoCert.authenticate(USERNAME, PASSWORD).then(function (userDetails) {
-    assert.deepEqual(userDetails, mockDetails, "The expected user details");
+    const expected = Object.assign({}, mockDetails, { groups: mockDetails.MemberOf });
+    assert.deepEqual(userDetails, expected, "The expected user details");
   }).catch(function (err) {
     assert.fail(JSON.stringify(err));
   });
